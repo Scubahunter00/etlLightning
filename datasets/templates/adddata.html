@@ -1,0 +1,1698 @@
+
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+
+        {% block content %}
+
+                            <!--Page header-->
+                            <div class="page-header">
+                                <div class="page-leftheader">
+                                    <h4 class="page-title mb-0 text-primary">{{dataset.name}}</h4>
+                                </div>
+                                <div class="page-rightheader">
+                                    <button class="btn btn-outline-primary"><i class="fe fe-download me-2"></i>
+                                        Import</button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary btn-pill dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-calendar me-2"></i>Search By Date
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);">Today</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Yesterday</a>
+                                            <a class="dropdown-item active" href="javascript:void(0);">Last 7 days</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last 30 days</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last 6 months</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last year</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Page header-->
+
+                            <!-- Row -->
+                            <div class="card" name="adddatum">
+                                <div class="card-header">
+                                    <div class="card-title">Add Data Element</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="panel panel-default">  
+                                        <div class="btn-group mt-2 mb-2">
+                                            <button type="button" class="btn btn-light dropdown-toggle datatypeselect"
+                                                data-bs-toggle="dropdown">
+                                                Data Type <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li class="dropdown-plus-title">
+                                                    Types
+                                                    <b class="fa fa-angle-up" aria-hidden="true"></b>
+                                                </li>
+                                                <li><a href="javascript:selectStructured();">Structured Data</a></li>
+                                                <li><a href="javascript:void(0);">Free Text</a></li>
+                                                <li><a href="javascript:void(0);">Json Object</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="javascript:void(0);">File Object</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body"> 
+                                    <div id="adddataform" class="adddataform mt-2 mb-2">
+                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- End Row -->
+
+                            <!-- Row -->
+                            <div class="row flex-lg-nowrap">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">Click DataTable with child tabs & tables</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive datatble-filter">
+                                                <table id="example4"
+                                                    class="table card-table table-vcenter text-nowrap border p-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Position</th>
+                                                            <th>Office</th>
+                                                            <th>Age</th>
+                                                            <th>Start date</th>
+                                                            <th>Salary</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="table-subheader">
+                                                            <td>Tatyana Fitzpatrick</td>
+                                                            <td>Regional Director</td>
+                                                            <td>London</td>
+                                                            <td>19</td>
+                                                            <td>2010/03/17</td>
+                                                            <td>$385,750</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab111"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab112"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab113"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab111">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab112">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab113">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Gavin Joyce</td>
+                                                            <td>Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>42</td>
+                                                            <td>2010/12/22</td>
+                                                            <td>$92,575</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab4"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab5"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab6"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab4">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab5">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab6">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Jennifer Chang</td>
+                                                            <td>Regional Director</td>
+                                                            <td>Singapore</td>
+                                                            <td>28</td>
+                                                            <td>2010/11/14</td>
+                                                            <td>$357,650</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab7"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab8"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab9"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab7">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab8">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab9">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Brrighten Wagner</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>28</td>
+                                                            <td>2011/06/07</td>
+                                                            <td>$206,850</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab10"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab11"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab12"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab10">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab11">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab12">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Fiona Green</td>
+                                                            <td>Chief Operating Officer (COO)</td>
+                                                            <td>San Francisco</td>
+                                                            <td>48</td>
+                                                            <td>2010/03/11</td>
+                                                            <td>$850,000</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab13"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab14"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab15"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab13">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab14">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab15">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Shou Itou</td>
+                                                            <td>Regional Marketing</td>
+                                                            <td>Tokyo</td>
+                                                            <td>20</td>
+                                                            <td>2011/08/14</td>
+                                                            <td>$163,000</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab16"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab17"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab18"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab16">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab17">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab18">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Michelle House</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>Sidney</td>
+                                                            <td>37</td>
+                                                            <td>2011/06/02</td>
+                                                            <td>$95,400</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab19"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab20"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab21"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab19">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab20">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab21">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Suki Burks</td>
+                                                            <td>Developer</td>
+                                                            <td>London</td>
+                                                            <td>53</td>
+                                                            <td>2009/10/22</td>
+                                                            <td>$114,500</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab22"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab23"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab24"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab22">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab23">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab24">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Prescott Bartlett</td>
+                                                            <td>Technical Author</td>
+                                                            <td>London</td>
+                                                            <td>27</td>
+                                                            <td>2011/05/07</td>
+                                                            <td>$145,000</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab25"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab26"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab27"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab25">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab26">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab27">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-subheader">
+                                                            <td>Gavin Cortez</td>
+                                                            <td>Team Leader</td>
+                                                            <td>San Francisco</td>
+                                                            <td>22</td>
+                                                            <td>2008/10/26</td>
+                                                            <td>$235,500</td>
+                                                        </tr>
+                                                        <tr style="display:none">
+                                                            <td colspan="6">
+                                                                <div>
+                                                                    <div
+                                                                        class="panel panel-primary receipts-inline-table border-0">
+                                                                        <div class="tab-menu-heading p-0 border-0">
+                                                                            <div class="tabs-menu1">
+                                                                                <!-- Tabs -->
+                                                                                <ul class="nav panel-tabs">
+                                                                                    <li><a href="#tab28"
+                                                                                            class="active"
+                                                                                            data-bs-toggle="tab">Receipts</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab29"
+                                                                                            data-bs-toggle="tab">History</a>
+                                                                                    </li>
+                                                                                    <li><a href="#tab30"
+                                                                                            data-bs-toggle="tab">Waste</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="panel-body tabs-menu-body p-0 border-0">
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="tab28">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Yuri Berry</td>
+                                                                                                <td>Chief Marketing Officer
+                                                                                                    (CMO)</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>40</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Doris Wilder</td>
+                                                                                                <td>Sales Assistant</td>
+                                                                                                <td>Sidney</td>
+                                                                                                <td>23</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Angelica Ramos</td>
+                                                                                                <td>Chief Executive Officer
+                                                                                                    (CEO)</td>
+                                                                                                <td>London</td>
+                                                                                                <td>47</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab29">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Suki Burks</td>
+                                                                                                <td>Developer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>53</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Fiona Green</td>
+                                                                                                <td>Chief Operating Officer
+                                                                                                    (COO)</td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>48</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Haley Kennedy</td>
+                                                                                                <td>Senior Marketing
+                                                                                                    Designer
+                                                                                                </td>
+                                                                                                <td>London</td>
+                                                                                                <td>43</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Cedric Kelly</td>
+                                                                                                <td>Senior Javascript
+                                                                                                    Developer
+                                                                                                </td>
+                                                                                                <td>Edinburgh</td>
+                                                                                                <td>22</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="tab-pane" id="tab30">
+                                                                                    <table class="table detail-transaction">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <th>Name</th>
+                                                                                                <th>Position</th>
+                                                                                                <th>Office</th>
+                                                                                                <th>Age</th>
+                                                                                            </tr>
+                                                                                            <tr class="last-product">
+                                                                                                <td>Airi Satou</td>
+                                                                                                <td>Junior Technical Author)
+                                                                                                </td>
+                                                                                                <td>San Francisco</td>
+                                                                                                <td>66</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Bradley Greer</td>
+                                                                                                <td>Software Engineer</td>
+                                                                                                <td>London</td>
+                                                                                                <td>41</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Caesar Vance</td>
+                                                                                                <td>Pre-Sales Support</td>
+                                                                                                <td>New York</td>
+                                                                                                <td>21</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>Brielle Williamson</td>
+                                                                                                <td>Integration Specialist
+                                                                                                </td>
+                                                                                                <td>New York</td>
+                                                                                                <td>61</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Row -->
+
+        {% endblock %}
+
+    {% block scripts %}
+
+    <script>
+        $(document).ready(function(){
+            var maxField = 10; //Input fields increment limitation
+            var dataTypeSelector = $('.datatypeselect'); //Add button selector
+            var wrapper = $('.adddataform'); //Input field wrapper
+            var fieldHTML = '<div class="form-group"><label for="key">Key</label><input type="text" class="form-control" id="key" placeholder="Enter key"><label for="value">Value</label><input type="text" class="form-control" id="value" placeholder="Enter value"><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a></div>'; //New input field html 
+            var x = 1; //Initial field counter is 1
+            
+            //Once add button is clicked
+            $(dataTypeSelector).click(function(){
+                console.log("Type Selected");
+                console.log($(dataTypeSelector).val())
+                //Check maximum number of input fields
+                if(x < maxField){ 
+                    x++; //Increment field counter
+                    // $(wrapper).append(fieldHTML); //Add field html
+                }
+            });
+            
+            //Once remove button is clicked
+            $(wrapper).on('click', '.remove_button', function(e){
+                e.preventDefault();
+                $(this).parent('div').remove(); //Remove field html
+                x--; //Decrement field counter
+            });
+        });
+    </script>
+
+    <script>
+        function selectStructured()
+        {
+            console.log("Structured Selected");
+            var wrapper = $('.adddataform'); 
+            var fieldHTML = '<div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-control" placeholder="First Name" value="Patrenna"> </div>' 
+            var fieldHTML1 = 'FOOOOOO'
+            $(wrapper).append(fieldHTML)
+        }
+    </script>
+
+
+
+    {% endblock %}
+

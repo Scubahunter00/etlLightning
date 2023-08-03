@@ -1,0 +1,346 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+
+        {% block content %}
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title mb-0 text-primary">Pipeline Details</h4>
+							</div>
+							<div class="page-rightheader">
+								
+                            </div>
+						</div>
+						<!--End Page header-->
+
+						<div class="main-proifle border">
+							<div class="row">
+								<div class="col-lg-12 col-xl-7">
+									<div class="box-widget widget-user">
+										<div class="widget-user-image1 d-xl-flex d-block">
+										
+											<div class="mt-1 ms-xl-5">
+												<h4 class="pro-user-username mb-3 font-weight-bold">{{pipeline.name}} <i
+														class="fa fa-check-circle text-success"></i></h4>
+												<ul class="mb-0 pro-details">
+													<li><span class="profile-icon bg-danger-transparent text-danger"><i
+																class="fe fe-globe"></i></span><span
+															class="h6 mt-3">Empty</span></li>
+													<li><span
+															class="profile-icon bg-success-transparent text-success"><i
+																class="fe fe-mail"></i></span><span
+															class="h6 mt-3">NULL</span></li>
+													<li><span class="profile-icon bg-info-transparent text-info"><i
+																class="fe fe-flag"></i></span><span
+															class="h6 mt-3">NULL</span></li>
+													<li><span
+															class="profile-icon bg-warning-transparent text-warning"><i
+																class="fe fe-phone-call"></i></span><span
+															class="h6 mt-3">NULL</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-auto col-xl-5">
+									<div class="text-xl-right text-end btn-list mt-4 mt-lg-0">
+										
+										<a href="/data/datasets/{{pipeline.id}}/edit" class="btn btn-primary">Edit Pipeline</a>
+									</div>
+									<div class="mt-5">
+										<div class="main-profile-contact-list row">
+											<div class="media col-sm-4 mb-3">
+												<div class="media-icon bg-primary-transparent text-primary me-3 mt-1">
+													<i class="fa fa-comments fs-18"></i>
+												</div>
+												<div class="media-body">
+													<small class="text-muted"># of Executions</small>
+													<div class="font-weight-bold number-font">
+														{{pipeline.number_of_datums}}
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="profile-cover">
+								<div class="wideget-user-tab">
+									<div class="tab-menu-heading p-0">
+										<div class="tabs-menu1 px-3">
+											<ul class="nav">
+												<li><a href="#tab-7" class="active fs-14" data-bs-toggle="tab">About</a>
+												</li>
+												<li><a href="#tab-8" data-bs-toggle="tab" class="fs-14">Steps</a></li>
+												<li><a href="#tab-9" data-bs-toggle="tab" class="fs-14">Execution History</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div><!-- /.profile-cover -->
+						</div>
+						<!-- Row -->
+						<div class="row">
+							<div class="col-xl-12 col-lg-12 col-md-12">
+								<div class="border-0">
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab-7">
+											<div class="card">
+												<div class="card-header ">
+													<h3 class="card-title">Description</h3>
+												</div>
+												<div class="card-body">
+													<div class="main-profile-bio mb-0">
+														{{pipeline.description}}
+													</div>
+												</div>
+												
+												<div class="card-header ">
+													<h3 class="card-title">Tags</h3>
+												</div>
+												<div class="card-body">
+													<a class="btn  btn-sm btn-light mt-1"
+														href="javascript:void(0);">NONE</a>
+													<a class="btn  btn-sm btn-light mt-1"
+														href="javascript:void(0);">NONE</a>
+													<a class="btn  btn-sm btn-light mt-1"
+														href="javascript:void(0);">NONE</a>
+												</div>
+												
+											</div>
+										</div>
+										<div class="tab-pane" id="tab-8">
+											<div class="card p-5">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="d-flex align-items-center border p-3 mb-3 br-7">
+															<div class="avatar avatar-lg brround d-block cover-image">	
+																<i class="fa fa-database" data-bs-toggle="tooltip" aria-label="fa fa-database" data-bs-original-title="fa fa-database"></i>
+															</div>
+															<div class="wrapper ms-3">
+																<p class="mb-0 mt-1  font-weight-semibold">Data Source
+																</p>
+																<small class="text-muted">Dataset: Test Data</small>
+															</div>
+															<div class="float-end ms-auto">
+																<a href="javascript:void(0);"
+																	class="btn btn-primary btn-md">View</a>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="d-flex align-items-center border p-3 mb-3 br-7">
+															<div class="avatar avatar-lg brround d-block cover-image">	
+																<i class="fa fa-upload" data-bs-toggle="tooltip" aria-label="fa fa-database" data-bs-original-title="fa fa-database"></i>
+															</div>
+															<div class="wrapper ms-3">
+																<p class="mb-0 mt-1  font-weight-semibold">Extractor
+																</p>
+																<small class="text-muted">{{extraction.name}}</small>
+															</div>
+															<div class="float-end ms-auto">
+																<a href="javascript:void(0);"
+																	class="btn btn-primary btn-md">View</a>
+															</div>
+														</div>
+													</div>
+													 {% for step in steps %}
+														<div class="col-lg-12">
+															<div class="d-flex align-items-center border p-3 mb-3 br-7">
+																<div class="avatar avatar-lg brround d-block cover-image">	
+																	<i class="fa fa-gears" data-bs-toggle="tooltip" aria-label="fa fa-database" data-bs-original-title="fa fa-database"></i>
+																</div>
+																<div class="wrapper ms-3" style="padding-right: 20px;">
+																	<p class="mb-0 mt-1  font-weight-semibold">Transformer
+																	</p>
+																	<small class="text-muted">{{step.step.name}}</small>
+																</div>
+																<div class="acc-card mb-2">
+																	<div class="acc-header" id="headingOne" role="tab">
+																		<h5 class="mb-0">
+																			<a aria-controls="collapseOne" aria-expanded="false" data-bs-toggle="collapse" href="#collapseOne" class="collapsed">
+																				Configuration</a>
+																		</h5>
+																	</div>
+																	<div aria-labelledby="headingOne" class="collapse" data-parent="#accordion" id="collapseOne" role="tabpanel" style="">
+																		<div class="acc-body">
+																			<div class="wrapper ms-3">
+																				{% if step.params %}
+																					{% for parameter in step.params %}
+																						<p class="mb-0 mt-1  font-weight-semibold">{{parameter.key}}: {{parameter.value}}</p>
+																					{% endfor %}
+																				{% endif %}
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																
+																<div class="float-end ms-auto">
+
+																	<a href="javascript:void(0);"
+																		class="btn btn-primary btn-md">View</a>
+																</div>
+															</div>
+														</div>
+													{% endfor %}
+													
+													<div class="col-lg-12">
+														<div class="d-flex align-items-center border p-3 mb-3 br-7">
+															<div class="avatar avatar-lg brround d-block cover-image">	
+																<i class="fa fa-cloud-download" data-bs-toggle="tooltip" aria-label="fa fa-database" data-bs-original-title="fa fa-database"></i>
+															</div>
+															<div class="wrapper ms-3">
+																<p class="mb-0 mt-1  font-weight-semibold">Loader
+																</p>
+																<small class="text-muted">{{loader.name}}</small>
+															</div>
+															<div class="float-end ms-auto">
+																<a href="javascript:void(0);"
+																	class="btn btn-primary btn-md">View</a>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-lg-12">
+														<div class="d-flex align-items-center border p-3 mb-3 br-7">
+															<div class="avatar avatar-lg brround d-block cover-image">	
+																<i class="fa fa-database" data-bs-toggle="tooltip" aria-label="fa fa-database" data-bs-original-title="fa fa-database"></i>
+															</div>
+															<div class="wrapper ms-3">
+																<p class="mb-0 mt-1  font-weight-semibold">Data Destination
+																</p>
+																<small class="text-muted">Dataset: Test Data Transformed</small>
+															</div>
+															<div class="float-end ms-auto">
+																<a href="javascript:void(0);"
+																	class="btn btn-primary btn-md">View</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="tab-9">
+											<ul class="timelineleft pb-5">
+												<li class="timeleft-label"><span class="bg-cyan">10 May. 2021</span>
+												</li>
+												<li>
+													<i class="fa fa-camera bg-orange"></i>
+													<div class="timelineleft-item">
+														<span class="time"><i class="fa fa-clock-o text-danger"></i> 2
+															days
+															ago</span>
+														<h3 class="timelineleft-header"><a
+																href="javascript:void(0);">Mina
+																Lee</a> uploaded new photos</h3>
+														<div class="timelineleft-body">
+															<img src="{% static 'assets/images/media/5.jpg'%}" alt="..."
+																class="margin mt-2 mb-2">
+															<img src="{% static 'assets/images/media/7.jpg'%}" alt="..."
+																class="margin mt-2 mb-2 ">
+														</div>
+													</div>
+												</li>
+												<li>
+													<i class="fa fa-envelope bg-primary"></i>
+													<div class="timelineleft-item">
+														<span class="time"><i class="fa fa-clock-o text-danger"></i>
+															12:05</span>
+														<h3 class="timelineleft-header"><a
+																href="javascript:void(0);">Support Team</a> <span>sent
+																you
+																an email</span></h3>
+														<div class="timelineleft-body">
+															Etsy doostang zoodles disqus groupon greplin oooj voxy
+															zoodles,
+															weebly ning heekya handango imeem plugg dopplr jibjab,
+															movity
+															jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo
+															kaboodle
+															quora plaxo ideeli hulu weebly balihoo...
+														</div>
+														<div class="timelineleft-footer">
+															<a class="btn btn-success text-white btn-sm">Read more</a>
+															<a class="btn btn-danger text-white btn-sm ">Delete</a>
+														</div>
+													</div>
+												</li>
+												<li>
+													<i class="fa fa-user bg-secondary"></i>
+													<div class="timelineleft-item">
+														<span class="time"><i class="fa fa-clock-o text-danger"></i> 5
+															mins
+															ago</span>
+														<h3 class="timelineleft-header no-border"><a
+																href="javascript:void(0);">Sarah Young</a> accepted your
+															friright request</h3>
+													</div>
+												</li>
+												<li>
+													<i class="fa fa-comments bg-warning"></i>
+													<div class="timelineleft-item">
+														<span class="time"><i class="fa fa-clock-o text-danger"></i> 27
+															mins
+															ago</span>
+														<h3 class="timelineleft-header"><a
+																href="javascript:void(0);">Jay
+																White</a> commented on your post</h3>
+														<div class="timelineleft-body">
+															Take me to your leader!
+															Switzerland is small and neutral!
+															We are more like Germany, ambitious and misunderstood!
+														</div>
+														<div class="timelineleft-footer">
+															<a class="btn btn-info text-white btn-flat btn-sm">View
+																comment</a>
+														</div>
+													</div>
+												</li>
+												<li class="timeleft-label">
+													<span class="bg-purple"> 3 Jan. 2014</span>
+												</li>
+												<li>
+													<i class="fa fa-camera bg-orange"></i>
+													<div class="timelineleft-item">
+														<span class="time"><i class="fa fa-clock-o text-danger"></i> 2
+															days
+															ago</span>
+														<h3 class="timelineleft-header"><a
+																href="javascript:void(0);">Mina
+																Lee</a> uploaded new photos</h3>
+														<div class="timelineleft-body">
+															<img src="{% static 'assets/images/media/1.jpg'%}" alt="..."
+																class="margin mt-2 mb-2">
+															<img src="{% static 'assets/images/media/2.jpg'%}" alt="..."
+																class="margin mt-2 mb-2 ">
+															<img src="{% static 'assets/images/media/3.jpg'%}" alt="..."
+																class="margin mt-2 mb-2 ">
+															<img src="{% static 'assets/images/media/4.jpg'%}" alt="..."
+																class="margin mt-2 mb-2">
+														</div>
+													</div>
+												</li>
+												<li>
+													<i class="fa fa-clock-o bg-success pb-3"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+        {% endblock %}
+
+    {% block scripts %}
+
+
+
+    {% endblock %}

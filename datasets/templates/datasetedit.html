@@ -1,0 +1,73 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+    
+        {% block content %}
+        
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title mb-0 text-primary">Edit Dataset {{dataset.id}} </h4>
+							</div>
+							<div class="page-rightheader">
+								
+                            </div>
+						</div>
+						<!--End Page header-->
+
+						<!-- Row-->
+						<form action="/data/datasets/details/" method="post" id="datasetform" name="datasetform">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card">
+										<div class="card-header">
+											<div class="card-title">Edit Dataset</div>
+										</div>
+										<input type="hidden" id="id" name="id" value={{dataset.id}}>
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<div class="form-group row">
+														<div class="col-md-5 mb-2">
+															<label class="form-label">Title</label>
+															<input class="form-control" placeholder="Dataset Name" id="name" name="name" type="text" value="{{dataset.name}}">
+														</div>
+														
+													</div>
+													<div class="form-group row">
+														<div class="col-md-6">
+															<label class="form-label">Description</label>
+															<textarea class="form-control" rows="4" id="description" name="description" >{{dataset.description}}</textarea>
+														</div>
+														
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="card-footer">
+											<div class="row">
+												<div class="col">
+													<a class="btn btn-success" href="javascript:document.getElementById('datasetform').submit();"><i
+															class="fe fe-plus"></i> Save</a>
+													<a class="btn btn-info" href="javascript:void(0);">Cancel</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<!-- End row-->
+
+        {% endblock %}
+
+    {% block scripts %}
+
+    
+
+    {% endblock %}

@@ -1,0 +1,92 @@
+{% load static %}
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+        <!-- Meta data -->
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+        <meta content="Azea - Django Admin Panel template" name="description">
+        <meta content="Spruko Private Limited" name="author">
+        <meta name="keywords" content="admin dashboard bootstrap, django admin panel template, bootstrap admin template, admin template bootstrap, admin panel dashboard, django admin dashboard, admin dashboard template, django admin template, admin panel template, admin panel template django, admin dashboard django, admin bootstrap, bootstrap admin dashboard, admin dashboard template bootstrap, bootstrap admin panel template">
+
+        <!-- Title -->
+        <title>Azea - Django Admin Panel template</title>
+
+        <!-- Styles -->
+        {% include 'components/layouts/styles.html' %}
+        {% block styles %}{% endblock %}
+
+        <!-- Switcher css -->
+        <link href="{% static 'assets/switcher/css/switcher.css'%}" rel="stylesheet">
+        <link href="{% static 'assets/switcher/demo.css'%}" rel="stylesheet">
+
+    </head>
+
+    <body class="app sidebar-mini ltr">
+
+        <!-- Switcher -->
+        {% include 'components/layouts/switcher.html' %}
+        <!-- End Switcher -->
+
+        <!---Global-loader-->
+        <div id="global-loader">
+            <img src="{% static 'assets/images/svgs/loader.svg'%}" alt="loader">
+        </div>
+        <!--- End Global-loader-->
+
+        <!-- Page -->
+        <div class="page">
+            <div class="page-main">
+
+                <!-- app header code -->
+                {% include 'components/layouts/app-header1.html' %}
+                <!-- End app header Code -->
+
+                <!-- app sidebar code -->
+                {% include 'components/layouts/app-sidebar.html' %}
+                <!-- End app sidebar Code -->
+
+               <!-- app-content start-->
+               <div class="app-content main-content">
+                    <div class="side-app">
+                        <div class="main-container container-fluid px-0">
+
+                            {% block content %}{% endblock %}
+
+                        </div>
+                    </div>
+                </div>
+                <!-- right app-content-->
+            </div>
+
+            {% block modal %}{% endblock %}
+
+            <!--Footer-->
+            {% include 'components/layouts/footer.html' %}
+            <!-- End Footer-->
+
+        </div>
+        <!-- End Page -->
+
+        <!-- Scripts -->
+        {% include 'components/layouts/scripts.html' %}
+        {% block scripts %}{% endblock %}   
+        
+		<!-- Color theme js -->
+		<script src="{% static 'assets/js/themeColors.js'%}"></script>
+
+        <!-- Switcher-Styles js -->
+		<script src="{% static 'assets/js/switcher-styles.js'%}"></script>
+
+		<!-- Custom js-->
+		<script src="{% static 'assets/js/custom.js'%}"></script>
+
+		<!-- Switcher js -->
+		<script src="{% static 'assets/switcher/js/switcher.js'%}"></script>
+     
+		<!-- sticky js -->
+		<script src="{% static 'assets/js/sticky.js'%}"></script>
+        
+    </body>
+
+</html>

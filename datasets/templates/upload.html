@@ -1,0 +1,45 @@
+
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+
+        {% block content %}
+
+                            <!--Page header-->
+                            <div class="page-header">
+                                <div class="page-leftheader">
+                                    <h4 class="page-title mb-0 text-primary">{{dataset.name}} : Data Upload</h4>
+                                </div>
+                                <div class="page-rightheader">
+                                    
+                                </div>
+                            </div>
+                            <!--End Page header-->
+
+ 
+                            <!-- Row -->
+                            <div class="row flex-lg-nowrap">
+                                <!-- create a Form for posting a csv file -->
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="file" name="document" class="form-control"> 
+                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                
+                                </form>
+                                                          
+                            </div>
+                            <!-- End Row -->
+
+        {% endblock %}
+
+    {% block scripts %}
+
+   
+
+
+
+    {% endblock %}
+

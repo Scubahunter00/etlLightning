@@ -1,0 +1,131 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+    {% block styles %}
+
+    {% endblock %}
+
+        {% block content %}
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title mb-0 text-primary"> Processing Pipelines</h4>
+							</div>
+							<div class="page-rightheader">
+								
+                            </div>
+						</div>
+						<!--End Page header-->
+
+						<!-- Row -->
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-md-6 mb-4">
+												<a href="/data/pipeline/add/";" class="btn btn-primary"><i
+														class="fe fe-plus"></i> Create Pipeline</a>
+											</div>
+											<div class="col-md-6 col-auto">
+											</div>
+										</div>
+										<div class="e-table">
+											<div class="table-responsive">
+												<table class="table table-vcenter text-nowrap border mb-0 table-hover"
+													id="invoicedatatable">
+													<thead>
+														<tr>
+															<th></th>
+															<th>Dataset Name</th>
+															
+															<th>Creation Date</th>
+															<th>Description</th>
+															<th># of Datum</th>
+															<th>Recent Status</th>
+															<th>Options</th>
+														</tr>
+													</thead>
+													<tbody>
+													{% if list %}
+														{% for item in list %}	
+														<tr>
+															<td class="align-middle w-5">
+																<label class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input"
+																		name="example-checkbox2" value="option2">
+																	<span class="custom-control-label"></span>
+																</label>
+															</td>
+															<td class="align-middle">
+																<div class="d-flex">
+																	<div class="mt-1">
+																		<a class="btn-link fs-16"
+																			href="/data/pipelines/{{item.id}}/">{{item.name}}</a>
+																	</div>
+																</div>
+															</td>
+															<td class="text-nowrap align-middle"><span>{{item.creation_date}}</span>
+															</td>
+															<td class="text-nowrap align-middle">
+																{{item.description}}
+															</td>
+															<td class="text-nowrap align-middle"><span
+																	class="font-weight-bold">{{item.number_of_datums}}</span></td>
+															<td><span
+																	class="bg-success px-2 py-1 text-white br-7">{{item.recent_status}}</span>
+															</td>
+															<td>
+																<div class="dropdown">
+																	<button class="btn btn-light btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+																		Options <i
+																		class="fa fa-angle-down"></i>
+																	</button>
+																	<ul class="dropdown-menu">
+																		<li>
+																			<a class="dropdown-item"
+																			href="javascript:void(0);"><i
+																				class="fe fe-eye me-2"></i> View</a>
+																		</li>
+																		<li>
+																			<a class="dropdown-item"
+																				href="javascript:void(0);"><i
+																					class="fe fe-share me-2"></i> Send</a>
+																		</li>
+																		<li>
+																			<a class="dropdown-item"
+																				href="javascript:void(0);"><i
+																					class="fe fe-edit me-2"></i> Edit</a>
+																		</li>
+																		<li>
+																			<a class="dropdown-item"
+																				href="javascript:void(0);"><i
+																					class="fe fe-trash me-2"></i> Delete</a>
+																		</li>
+																	</ul>
+																</div>
+															</td>
+														</tr>
+														
+														{% endfor %}
+													{% else %}
+														<p>No Datasets are available.</p>
+													{% endif %}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Row -->
+
+        {% endblock %}
+
+    {% block scripts %}
+
+
+
+    {% endblock %}

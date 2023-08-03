@@ -1,0 +1,39 @@
+<!-- Form for submiting any number of key value pairs -->
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+
+<div class="field_wrapper">
+    <input type="button" class="add_button" value="Add More Fields"/>
+    
+</div>
+
+<!--  Script for adding fields to my form   -->
+<script>
+    $(document).ready(function(){
+        var maxField = 10; //Input fields increment limitation
+        var addButton = $('.add_button'); //Add button selector
+        var wrapper = $('.field_wrapper'); //Input field wrapper
+        var fieldHTML = '<div class="form-group"><label for="key">Key</label><input type="text" class="form-control" id="key" placeholder="Enter key"><label for="value">Value</label><input type="text" class="form-control" id="value" placeholder="Enter value"><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a></div>'; //New input field html 
+        var x = 1; //Initial field counter is 1
+        
+        //Once add button is clicked
+        $(addButton).click(function(){
+            console.log("add button clicked");
+            //Check maximum number of input fields
+            if(x < maxField){ 
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); //Add field html
+            }
+        });
+        
+        //Once remove button is clicked
+        $(wrapper).on('click', '.remove_button', function(e){
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+    });
+</script>
